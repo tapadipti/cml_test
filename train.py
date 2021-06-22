@@ -18,7 +18,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 import json
 
-n_estimators, max_features = 2, 10
+n_estimators, max_features = 10, 10
 rf_classifier=RandomForestClassifier(n_estimators=n_estimators, max_features=max_features)
 scores=cross_val_score(rf_classifier,X,y,cv=10)
 score = scores.mean()
