@@ -30,5 +30,4 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python train.py
-          cat scores.txt >> scores.md
 
