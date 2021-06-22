@@ -24,7 +24,7 @@ score = scores.mean()
 print("Scores: ", scores)
 print("Score: ", score)
 
-f = open("scores.txt", "w")
+f = open("scores.yaml", "w")
 for sc in scores:
     f.write(str(round(sc,2))+"\n")
 f.close()
