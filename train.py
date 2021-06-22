@@ -24,6 +24,11 @@ score = scores.mean()
 print("Scores: ", scores)
 print("Score: ", score)
 
+f = open("scores.txt", "w")
+for sc in scores:
+    f.write(str(round(sc,2))+"\n")
+f.close()
+
 # Plot the scores
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], scores, color='lightblue', linewidth=3)
