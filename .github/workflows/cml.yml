@@ -23,7 +23,7 @@ jobs:
           python train.py
 
           echo "## Scores" > report.md
-          cat scores.yaml >> report.md
+          cat scores.json >> report.md
           
           echo "## Scores vizualization" > report.md
           cml-publish scores.png --md >> report.md
