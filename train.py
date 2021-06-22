@@ -16,6 +16,8 @@ X=dataset.drop(['target'],axis=1)
 # Train
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
+import json
+
 n_estimators, max_features = 2, 10
 rf_classifier=RandomForestClassifier(n_estimators=n_estimators, max_features=max_features)
 scores=cross_val_score(rf_classifier,X,y,cv=10)
@@ -24,9 +26,12 @@ score = scores.mean()
 print("Scores: ", scores)
 print("Score: ", score)
 
-f = open("scores.yaml", "w")
-for sc in scores:
-    f.write(str(round(sc,2))+"\n")
+# Write the output to file
+scores_dict = {k: round(v, 2) for k, v in enumerate(scores)}
+json_object = json.dumps(scores_dict)
+
+f = open("scores.json", "w")
+f.write(json_object)
 f.close()
 
 # Plot the scores
